@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.text import slugify
-
+from django.contrib import admin
+# Document modelini buradaki listeye eklediğinden emin ol:
+from .models import GeneralSetting, ImageSetting, Skill, SocialMedia, Document
 from core.models import *
 
 
@@ -26,10 +28,9 @@ class ImageSettingAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ['id', 'order', 'name', 'percentage', 'updated_date', 'created_date']
-    search_fields = ['name']
-    list_editable = ['order', 'name', 'percentage']
-
+    list_display = ['id', 'order', 'name', 'description', 'updated_date', 'created_date']
+    list_editable = ['order', 'name', 'description']
+    # Eğer search_fields vs. içinde de 'percentage' varsa onu da 'description' yap.
     class Meta:
         model = Skill
 

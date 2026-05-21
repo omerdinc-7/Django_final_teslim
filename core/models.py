@@ -1,6 +1,4 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.forms import CharField
 
 
 class AbstractModel(models.Model):
@@ -43,11 +41,14 @@ class ImageSetting(AbstractModel):
 
 class Skill(AbstractModel):
     order = models.IntegerField(default=0, verbose_name='Order')
-    name = models.CharField(default='', max_length=254, blank=True, verbose_name='Name',
-                            help_text='This is variable of the settings.')
 
-    percentage = models.IntegerField(default=50, blank=True, verbose_name='Percentage',
-                                     validators=[MinValueValidator, MaxValueValidator])
+    # Ana sayı/değer (Örn: "210", "113")
+    name = models.CharField(default='', max_length=254, blank=True, verbose_name='Name',
+                            help_text='This is variable of the settings. (Örn: 210, 113)')
+
+    # Yeni eklenen açıklama metni alanı
+    description = models.CharField(default='', max_length=254, blank=True, verbose_name='Description',
+                                   help_text='Değerin altında yer alacak ince açıklama metni.')
 
     def __str__(self):
         return f'Skill: {self.name}'

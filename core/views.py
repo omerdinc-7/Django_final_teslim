@@ -14,6 +14,7 @@ def layout(request):
     phone_number = GeneralSetting.objects.get(name='phone_number').parameter
     email_address = GeneralSetting.objects.get(name='email_address').parameter
     address = GeneralSetting.objects.get(name='address').parameter
+    sub_title = GeneralSetting.objects.get(name='sub_title').parameter
 
 
     # Images
@@ -23,6 +24,12 @@ def layout(request):
     site_favicon = ImageSetting.objects.get(name='site_favicon').file
     social_medias = SocialMedia.objects.all().order_by('order')
     secondpage = ImageSetting.objects.get(name='secondpage').file
+    project_img1 = ImageSetting.objects.get(name='project_img1').file
+    project_img2 = ImageSetting.objects.get(name='project_img2').file
+    project_img3 = ImageSetting.objects.get(name='project_img3').file
+    engine_image = ImageSetting.objects.get(name='engine_image').file
+
+
     context = {
         'documents': documents,
         'site_title': site_title,
@@ -39,6 +46,11 @@ def layout(request):
         'address': address,
         'firstpage': firstpage,
         'secondpage': secondpage,
+        'sub_title': sub_title,
+        'project_img1': project_img1,
+        'project_img2': project_img2,
+        'project_img3': project_img3,
+        'engine_image': engine_image
 
     }
     return context
