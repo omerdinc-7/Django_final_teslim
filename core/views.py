@@ -28,6 +28,7 @@ def layout(request):
     project_img2 = ImageSetting.objects.get(name='project_img2').file
     project_img3 = ImageSetting.objects.get(name='project_img3').file
     engine_image = ImageSetting.objects.get(name='engine_image').file
+    anasayfa_logo = ImageSetting.objects.get(name='anasayfa_logo').file
 
 
     context = {
@@ -50,7 +51,8 @@ def layout(request):
         'project_img1': project_img1,
         'project_img2': project_img2,
         'project_img3': project_img3,
-        'engine_image': engine_image
+        'engine_image': engine_image,
+        'anasayfa_logo': anasayfa_logo
 
     }
     return context

@@ -99,127 +99,99 @@
 
 
     <section class="skills-section" id="skills" style="padding: 100px 0; background-color: #f2f2f2;">
-    <div class="container px-4 px-lg-5">
+        <div class="container px-4 px-lg-5">
 
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-lg-8 text-center">
-                {% if engine_image %}
-                    <img src="{{ engine_image.url }}" alt="BMW Motor Bloğu" class="img-fluid"
-                         style="max-height: 400px; object-fit: contain;">
-                {% else %}
-                    <p class="text-muted">(Motor görseli Admin panelinden bekleniyor...)</p>
-                {% endif %}
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-lg-8 text-center">
+                    {% if engine_image %}
+                        <img src="{{ engine_image.url }}" alt="BMW Motor Bloğu" class="img-fluid"
+                             style="max-height: 400px; object-fit: contain;">
+                    {% else %}
+                        <p class="text-muted">(Motor görseli Admin panelinden bekleniyor...)</p>
+                    {% endif %}
+                </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-9 text-start">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9 text-start">
 
-                {% for item in skills %}
-                    <div class="spec-item" style="margin-bottom: 25px;">
+                    {% for item in skills %}
+                        <div class="spec-item" style="margin-bottom: 25px;">
 
-                        <h2 class="text-dark mb-0"
-                            style="font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1.1;">
-                            {{ item.name }}
-                        </h2>
+                            <h2 class="text-dark mb-0"
+                                style="font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1.1;">
+                                {{ item.name }}
+                            </h2>
 
-                        <p class="text-dark mb-2" style="font-size: 1.15rem; font-weight: 500;">
-                            {% if item.description %}
-                                {{ item.description }}
-                            {% else %}
-                                <span class="text-danger" style="font-size: 0.9rem;">(Açıklama girilmedi)</span>
-                            {% endif %}
+                            <p class="text-dark mb-2" style="font-size: 1.15rem; font-weight: 500;">
+                                {% if item.description %}
+                                    {{ item.description }}
+                                {% else %}
+                                    <span class="text-danger" style="font-size: 0.9rem;">(Açıklama girilmedi)</span>
+                                {% endif %}
+                            </p>
+
+                            <hr style="border-top: 2px solid #111; opacity: 1; margin: 0;">
+
+                        </div>
+                    {% endfor %}
+
+                    <div class="text-center mt-5 pt-4">
+                        <p class="text-dark mb-5" style="font-size: 1.15rem; font-weight: 500;">
+                            Su/yağ soğutmalı 4 silindirli 4 zamanlı sıralı motor
                         </p>
 
-                        <hr style="border-top: 2px solid #111; opacity: 1; margin: 0;">
 
                     </div>
-                {% endfor %}
 
-                <div class="text-center mt-5 pt-4">
-                    <p class="text-dark mb-5" style="font-size: 1.15rem; font-weight: 500;">
-                        Su/yağ soğutmalı 4 silindirli 4 zamanlı sıralı motor
-                    </p>
-
-                    <a href="#projects" class="btn btn-dark rounded-0 fw-bold py-3"
-                       style="font-size: 1rem; letter-spacing: 1px; width: 100%; max-width: 400px; background-color: #111; text-transform: uppercase;">
-                        VERİLER VE DONANIM
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <section class="signup-section" id="signup" style="padding: 100px 0; background-color: #0a0a0a;">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-                    <h2 class="text-white mb-3 text-uppercase" style="font-weight: 800; letter-spacing: 2px;">Make Life
-                        A Ride.</h2>
-                    <p class="text-white-50 mb-5" style="font-size: 1.1rem;">
-                        S 1000 RR'ın sınırları zorlayan dünyasından, M performans parçalarından ve özel pist günlerinden
-                        ilk siz haberdar olun. Bültene katılın.
-                    </p>
-
-                    <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <div class="row input-group-newsletter justify-content-center">
-                            <div class="col-sm-8 mb-2 mb-sm-0">
-                                <input class="form-control rounded-0 p-3" id="emailAddress" type="email"
-                                       placeholder="E-posta adresinizi girin..."
-                                       aria-label="E-posta adresinizi girin..."
-                                       data-sb-validations="required,email"/>
-                            </div>
-                            <div class="col-sm-auto">
-                                <button class="btn btn-light rounded-0 fw-bold px-4 h-100" id="submitButton"
-                                        type="submit" style="letter-spacing: 1px;">KAYIT OL
-                                </button>
-                            </div>
-                        </div>
-                        <div class="invalid-feedback mt-2 text-center" data-sb-feedback="emailAddress:required">E-posta
-                            adresi zorunludur.
-                        </div>
-                        <div class="invalid-feedback mt-2 text-center" data-sb-feedback="emailAddress:email">Geçerli bir
-                            e-posta adresi girin.
-                        </div>
-
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3 mt-2 text-white">
-                                <div class="fw-bolder">Bültene başarıyla kaydoldunuz!</div>
-                            </div>
-                        </div>
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3 mt-2">Bir hata oluştu!</div>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="contact-section bg-black" style="padding: 60px 0 100px 0;">
+        </div>
+
+
+    <section class="contact-section" style="background-color: #000; padding: 80px 0;">
         <div class="container px-4 px-lg-5">
-            <div class="row justify-content-center text-center text-white mb-4">
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-12 text-center">
+                    <div class="mx-auto" style="width: 80px; height: 4px; background: linear-gradient(to right, #00A9E0 33%, #001A70 33%, #001A70 66%, #E32219 66%);"></div>
+                </div>
+            </div>
+
+            <div class="row gx-4 gx-lg-5 mb-5 text-center">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <i class="fas fa-map-marker-alt text-white mb-3" style="font-size: 1.5rem;"></i>
+                    <h5 class="text-uppercase text-white fw-bold" style="letter-spacing: 1px; font-size: 1rem;">Adres</h5>
+                    <p class="text-white-50 small">{{ address }}</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <i class="fas fa-envelope text-white mb-3" style="font-size: 1.5rem;"></i>
+                    <h5 class="text-uppercase text-white fw-bold" style="letter-spacing: 1px; font-size: 1rem;">E-Posta</h5>
+                    <p class="text-white-50 small">
+                        <a href="mailto:{{ email_address }}" class="text-white-50 text-decoration-none">{{ email_address }}</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <i class="fas fa-phone text-white mb-3" style="font-size: 1.5rem;"></i>
+                    <h5 class="text-uppercase text-white fw-bold" style="letter-spacing: 1px; font-size: 1rem;">Telefon</h5>
+                    <p class="text-white-50 small">{{ phone_number }}</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center text-center mt-5">
                 <div class="col-lg-6">
-                    <h4 class="text-uppercase" style="font-weight: 700; letter-spacing: 2px; font-size: 1.2rem;">BMW
-                        Motorrad Topluluğu</h4>
-                    <p class="text-white-50 small mt-2">Bizi sosyal medyada takip edin, #MakeLifeARide tutkusunu
-                        birlikte paylaşalım.</p>
-
-                    <div class="mx-auto mt-4 mb-4"
-                         style="width: 60px; height: 4px; background: linear-gradient(to right, #00A9E0 33%, #001A70 33%, #001A70 66%, #E32219 66%);"></div>
+                    <h5 class="text-uppercase text-white mb-4" style="font-weight: 700; letter-spacing: 2px; font-size: 1rem;">#MakeLifeARide</h5>
+                    <div class="social d-flex justify-content-center">
+                        {% for social_media in social_medias %}
+                            <a class="mx-2 d-flex align-items-center justify-content-center text-decoration-none" href="{{ social_media.link }}" target="_blank"
+                               style="width: 45px; height: 45px; background-color: #111; color: #fff; border: 1px solid #333; transition: all 0.3s ease;">
+                                <i class="{{ social_media.icon|safe }}" style="font-size: 1.1rem;"></i>
+                            </a>
+                        {% endfor %}
                 </div>
             </div>
 
-            <div class="social d-flex justify-content-center">
-                {% for social_media in social_medias %}
-                    <a class="mx-2" href="{{ social_media.link }}" target="_blank"
-                       style="background-color: #1a1a1a; color: #fff; width: 3.5rem; height: 3.5rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; border: 1px solid #333;">
-                        <i class="{{ social_media.icon|safe }}" style="font-size: 1.2rem;"></i>
-                    </a>
-                {% endfor %}
-            </div>
         </div>
     </section>
 {% endblock %}
