@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container px-4 px-lg-5 my-5 pt-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4 text-center">Contact Us</h2>
+
+                {% if success %}
+                    <div class="alert alert-success" role="alert">Mesajınız başarıyla gönderildi.</div>
+                {% endif %}
+
+                <!-- Inline message container -->
+                <div id="formMessage"></div>
+
+                <form id="contactForm" method="post" action="{% url 'contact' %}" novalidate>
+                    {% csrf_token %}
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Ad</label>
+                            <input type="text" class="form-control" id="{{ contact_form.name.id_for_label }}" name="{{ contact_form.name.html_name }}" placeholder="Ad" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="last_name" class="form-label">Soyad</label>
+                            <input type="text" class="form-control" id="{{ contact_form.last_name.id_for_label }}" name="{{ contact_form.last_name.html_name }}" placeholder="Soyad" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="{{ contact_form.email.id_for_label }}" name="{{ contact_form.email.html_name }}" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Konu</label>
+                        <input type="text" class="form-control" id="{{ contact_form.subject.id_for_label }}" name="{{ contact_form.subject.html_name }}" placeholder="Konu" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Mesaj</label>
+                        <textarea class="form-control" id="{{ contact_form.message.id_for_label }}" name="{{ contact_form.message.html_name }}" rows="6" placeholder="Mesajınız..." required></textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" id="contactSubmit">
+                            <span id="submitText">Gönder</span>
+                            <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- include contact page script -->
+    <script src="{% static 'js/contact.js' %}?v={% now 'U' %}"></script>
+{% endblock %}
